@@ -1,0 +1,45 @@
+<html>
+<head>
+<title> 111 </title>
+<script>
+	function create() {
+  let ul = document.createElement('ul');
+  document.body.append(ul);
+
+  while (true) {
+   let data = prompt("Введите значения для списка", "");
+
+    if (!data) {
+      break;
+    }
+
+   let li = document.createElement('li');
+   li.textContent = data;
+   ul.append(li);
+  }
+}
+
+function sortirovka() {
+  let arr = document.getElementsByTagName('li');
+  let sortedRows = Array.from(arr)
+  sortedRows.sort((a, b) => a.textContent > b.textContent ? 1 : -1);
+
+  sortedRows.forEach(console.log);
+}
+
+
+function count() {
+  let schet = document.getElementsByTagName('li').length;
+
+  document.body.append('Количество элементов: ' + schet);
+}
+</script>
+</head>
+<body>
+<div>
+	<input type="button" value="Создать список" id="Create" onclick="create()">
+	<input type="button" value="Отсортировать список" id="Sort" onclick="sortirovka()">
+	<input type="button" value="Кол-во элементов" id="Count" onclick="count()">
+</div>
+</body>
+</html>
